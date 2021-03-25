@@ -4,7 +4,7 @@
 To run the app on local docker: 
 `docker-compose -f stack.yml up --build`
 To Shutdown everything:
-`docker-compose -f stack.yml down -v --rmi all`
+`docker-compose -f stack.yml down -v --rmi local`
 
 ## Work stuff
 2. To install Js package dependencies, move the the folder contains `package.json` which is `/Users/hoang/Documents/work/Risk-Analytic-platform/hippo-analytics/hello-world`

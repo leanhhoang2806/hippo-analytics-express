@@ -1,10 +1,13 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
+
+app.use(cors())
 
 const { createUser } = require('./services/authentication/authentication-service.js');
 const port = 8080
 
-app.get('/', (req, res) => {
+app.post('/createUser', (req, res) => {
   const user = createUser()
   res.send(user)
 })
