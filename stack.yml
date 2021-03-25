@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      PGDATA: /var/lib/postgresql/data/pgdata
+      POSTGRES_USER: localdev
+      POSTGRES_PASSWORD: vanmaibenem2829
+      POSTGRES_DB: original
+  
+  app:
+    build: .
+    image: app
+    container_name: app
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      NODE_ENV: development
+      DEBUG: nodejs-docker-express:*
+    depends_on:
+      - db
+
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://docker.for.mac.localhost:5432/original -user=localdev -password=vanmaibenem2829 -connectRetries=60 migrate
+    volumes:
+      - .:/flyway/sql
+    depends_on:
+      - db
+    restart: on-failure

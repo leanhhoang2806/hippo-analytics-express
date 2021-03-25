@@ -1,0 +1,19 @@
+{
+  "name": "hippo-analytic-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "pg": "^8.5.1",
+    "uuid": "^8.3.2"
+  }
+}
